@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
 from detector import analyze_transactions
 import pandas as pd
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app)
 @app.route("/")
 def home():
-    return {"message": "Fraud IP Detection API running"}
+    return jsonify({"message": "Fraud IP Detection API running"})
 @app.route("/test")
 def test():
     sample_data = {
