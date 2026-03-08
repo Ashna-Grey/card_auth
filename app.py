@@ -5,6 +5,9 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return {"message": "Fraud IP Detection API running"}
+@app.route("/test")
+def test():
+    return {"status": "server working"}
 @app.route("/analyze", methods=["POST"])
 def analyze():
     if 'file' not in request.files:
