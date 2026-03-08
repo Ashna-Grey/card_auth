@@ -7,7 +7,16 @@ def home():
     return {"message": "Fraud IP Detection API running"}
 @app.route("/test")
 def test():
-    return {"status": "server working"}
+    sample_data = {
+        "suspicious_cards": [
+            {
+                "card_number": "11112222",
+                "transactions": 3,
+                "unique_ips": 2
+            }
+        ]
+    }
+    return jsonify(sample_data)
 @app.route("/analyze", methods=["POST"])
 def analyze():
     if 'file' not in request.files:
